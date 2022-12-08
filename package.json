@@ -5,7 +5,7 @@
     "dev:api": "./node_modules/.bin/tsc-watch --onSuccess 'node ./dist/src/components/api'",
     "dev:script": "./node_modules/.bin/tsc-watch --onSuccess 'node ./dist/src/components/script'",
     "eslint:check": "./node_modules/.bin/eslint src",
-    "eslint:fix": "./node_modules/.bin/eslint src--fix",
+    "eslint:fix": "./node_modules/.bin/eslint src --fix",
     "build": "./node_modules/.bin/tsc",
     "password:api": "node ./dist/src/components/api",
     "password:script": "node ./dist/src/components/script"

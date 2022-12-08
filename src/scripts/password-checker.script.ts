@@ -18,7 +18,7 @@ export const run = async function run() {
 const isValid = password => {
   http.post(
     {url: PASSWORD_VALIDITY_CHECKER_API, data: {password}},
-    async (error, result) => {
+    async (error) => {
       if (error?.body?.errors) {
         console.log(
           `Validaty check: 😡 Password ${password} Is Really Bad Because: [${error.body.errors.join(
