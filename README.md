@@ -40,5 +40,7 @@ This project is using docker & docker compose, so simply you can get everything 
 - `docker-compose up`: that will build all the 4 services [ `api` , `password_checker_script` , `mysql` , `erasys/compromised-pw-api` ]
 - After that you can:
   - Check the API via `http://localhost:3000/`
+  ![api](https://i.imgur.com/6r29yhG.png)
   - Run the script via `docker-compose exec password_checker_script npm run password:script` [the sql dump is already imported, so every thing should run fine 👀]
+  ![script](https://i.imgur.com/33KeIu7.png)
 
