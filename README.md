@@ -43,4 +43,12 @@ This project is using docker & docker compose, so simply you can get everything 
   ![api](https://i.imgur.com/6r29yhG.png)
   - Run the script via `docker-compose exec password_checker_script npm run password:script` [the sql dump is already imported, so every thing should run fine 👀]
   ![script](https://i.imgur.com/33KeIu7.png)
+  - Those are app commands which you can check in package.json file:
+    -  `dev:api` : start the development mode of the api
+    -  `dev:script` : start the development mode of the script
+    -  `eslint:check` : check the linting via eslint
+    -  `eslint:fix" : fix linting via eslint
+    -  `build` : build the typescript app into the /dist folder
+    -  `password:api` : start the password api server
+    -  `password:script` : start the password script command
 
