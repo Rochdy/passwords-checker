@@ -47,7 +47,7 @@ This project is using docker & docker compose, so simply you can get everything 
     -  `dev:api` : start the development mode of the api
     -  `dev:script` : start the development mode of the script
     -  `eslint:check` : check the linting via eslint
-    -  `eslint:fix" : fix linting via eslint
+    -  `eslint:fix` : fix linting via eslint
     -  `build` : build the typescript app into the /dist folder
     -  `password:api` : start the password api server
     -  `password:script` : start the password script command
