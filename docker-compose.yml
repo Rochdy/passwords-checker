@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  api:
+    container_name: api
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/api/Dockerfile
+    volumes:
+      - .:/app
+      - ./node_modules:/app/node_modules
+    environment:
+      PORT : 3000
+    ports:
+      - '3000:3000'
+
+  password_checker_script:
+    container_name: password_checker_script
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/script/Dockerfile
+    volumes:
+      - .:/app
+      - ./node_modules:/app/node_modules
+    environment:
+      PASSWORD_VALIDITY_CHECKER_API : 'http://api:3000/password'
+      PASSWORD_COMPROMISED_CHECKER_API : 'http://compromised_pw_api:5000/compromised'
+      DATABASE_URL: 'mysql://user:pass@mysql_db/testDb?schema=public'
+    depends_on:
+      - db_mysql
+      - api
+      - compromised-pw-api
+    tty: true
+
+
+  db_mysql:
+    container_name: mysql_db
+    image: mysql
+    volumes:
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_USER : root
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: testDb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    restart: always 
+    ports:
+      - '3316:3306'
+
+  compromised-pw-api:
+    container_name: compromised_pw_api
+    image: erasys/compromised-pw-api
+    ports:
+      - '5000:5000'
+
+volumes:
+  db_data:

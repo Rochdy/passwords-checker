@@ -1,0 +1,16 @@
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
+  
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model passwords {
+  password  String   @db.VarChar(255)  @unique
+  valid     Int?     
+}

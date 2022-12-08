@@ -1,0 +1,36 @@
+{
+  "name": "erasys",
+  "version": "1.0.0",
+  "description": "",  "scripts": {
+    "dev:api": "./node_modules/.bin/tsc-watch --onSuccess 'node ./dist/src/components/api'",
+    "dev:script": "./node_modules/.bin/tsc-watch --onSuccess 'node ./dist/src/components/script'",
+    "eslint:check": "./node_modules/.bin/eslint src",
+    "eslint:fix": "./node_modules/.bin/eslint src--fix",
+    "build": "./node_modules/.bin/tsc",
+    "password:api": "node ./dist/src/components/api",
+    "password:script": "node ./dist/src/components/script"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.7.1",
+    "@types/node": "^18.11.10",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "mysql2": "^2.3.3",
+    "prisma": "^4.7.1",
+    "reflect-metadata": "^0.1.13",
+    "tiny-json-http": "^7.4.2",
+    "typescript-http-client": "^0.10.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/node-fetch": "^2.6.2",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "@typescript-eslint/parser": "^5.45.1",
+    "eslint": "^8.29.0",
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.9.4"
+  }
+}
